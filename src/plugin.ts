@@ -13,8 +13,8 @@ class TranslationMarkupPlugin {
 
   constructor(options?: IPluginConstructorParams) {
     const {
-      globPath,
-      outputDirectory,
+      globPath = './**/*.lang.yaml',
+      outputDirectory = './translations',
       compileOptions = { format: FormatOptions.JS }
     } = { ...options };
 
