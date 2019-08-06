@@ -32,8 +32,20 @@ import TranslationMarkupPlugin from '@shiftcode/translation-markup-plugin';
 {
 	...
 	plugins: [
-		new TranslationMarkupPlugin()
+		new TranslationMarkupPlugin(options)
 	]
 	...
 }
 ```
+
+## Options
+
+|      Param      |                                Type                                |                             Default                             |                                       Details                                       |
+| :-------------: | :----------------------------------------------------------------: | :-------------------------------------------------------------: | :---------------------------------------------------------------------------------: |
+|    globPath     |                             `<string>`                             |                      `'./**/*.lang.yaml'`                       | [Glob](https://www.npmjs.com/package/glob) style path where to find the yaml files. |
+| outputDirectory |                             `<string>`                             |                       `'./translations'`                        |                        Directory to output the translations.                        |
+|     options     | `{ format: <string>, splitFiles: <boolean>, outputName: <string>}` | `{ format: 'JS', splitFiles: true, outputName: 'translations'}` |                           Output type and split options.                            |
+
+\*\*\* `format` accepts `JS` or `JSON` as values
+
+**&rarr; Returns: `Promise<void>`**

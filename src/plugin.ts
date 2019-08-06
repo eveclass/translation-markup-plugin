@@ -9,18 +9,18 @@ import { IPluginConstructorParams } from '../types/IPluginConstructorParams';
 class TranslationMarkupPlugin {
   private readonly globPath: string;
   private readonly outputDirectory: string;
-  private readonly options: ICompileOptions;
+  private readonly compileOptions: ICompileOptions;
 
-  constructor(params?: IPluginConstructorParams) {
+  constructor(options?: IPluginConstructorParams) {
     const {
       globPath,
       outputDirectory,
-      options = { format: FormatOptions.JS }
-    } = { ...params };
+      compileOptions = { format: FormatOptions.JS }
+    } = { ...options };
 
     this.globPath = globPath;
     this.outputDirectory = outputDirectory;
-    this.options = options;
+    this.compileOptions = compileOptions;
   }
 
   public apply(compiler: any) {
@@ -43,7 +43,7 @@ class TranslationMarkupPlugin {
     compile({
       globPath: this.globPath,
       outputDirectory: this.outputDirectory,
-      options: this.options
+      options: this.compileOptions
     }).catch((error: any) => {
       console.warn('Translation Compile error');
       console.log(error);
