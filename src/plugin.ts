@@ -34,9 +34,22 @@ class TranslationMarkupPlugin {
     /**
      * Used in development watch mode
      */
-    compiler.hooks.watchRun.tapPromise('TranslationMarkupPlugin', async () => {
-      this.compileTranslationFiles();
-    });
+    compiler.hooks.watchRun.tapPromise(
+      'TranslationMarkupPlugin',
+      async (runCompiler: any) => {
+        const changedFilesPaths = Object.keys(
+          runCompiler.watchFileSystem.watcher.mtimes
+        );
+
+        const paths = changedFilesPaths.join();
+
+        const found = paths.match(this.outputDirectory);
+
+        if (!found) {
+          this.compileTranslationFiles();
+        }
+      }
+    );
   }
 
   private compileTranslationFiles() {
