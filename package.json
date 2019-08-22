@@ -1,6 +1,6 @@
 {
   "name": "@shiftcode/translation-markup-plugin",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "",
   "main": "lib/src/plugin.js",
   "types": "lib/src/plugin.d.ts",
@@ -19,7 +19,7 @@
   "author": "Shift Code",
   "license": "MIT",
   "dependencies": {
-    "@shiftcode/translation-markup": "^1.0.1",
+    "@shiftcode/translation-markup": "^1.0.3",
     "tslint": "^5.18.0",
     "tslint-config-prettier": "^1.18.0",
     "tslint-microsoft-contrib": "^6.2.0",

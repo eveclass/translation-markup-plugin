@@ -18,10 +18,10 @@
     esutils "^2.0.2"
     js-tokens "^4.0.0"
 
-"@shiftcode/translation-markup@^1.0.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@shiftcode/translation-markup/-/translation-markup-1.0.1.tgz#e6549f07bf7cc4b992299a1cec81ba81c9392a3e"
-  integrity sha512-qmvs5/wSN9KKoA+3ldQRhsSijWGg2m6Q7dxDVIfVJDfVXJGq6b791zHdWHHvz28m1utFz3yjIWhkwPcVro1gdQ==
+"@shiftcode/translation-markup@^1.0.3":
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/@shiftcode/translation-markup/-/translation-markup-1.0.3.tgz#6aba91cb94d3b60c0b3ee8336f4e456c97e7a281"
+  integrity sha512-Su40wDs7Kf8A50EJdzZn8usYhDjuv/Eb48gaZ/DU6pcPOB76wJjcKpCeAKZE9UrIZVfCTcSj+e7gP1ct0qPQRA==
   dependencies:
     flat "^4.1.0"
     glob "^7.1.4"

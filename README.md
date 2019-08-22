@@ -46,6 +46,6 @@ import TranslationMarkupPlugin from '@shiftcode/translation-markup-plugin';
 | outputDirectory |                             `<string>`                             |                       `'./translations'`                        |                        Directory to output the translations.                        |
 |     options     | `{ format: <string>, splitFiles: <boolean>, outputName: <string>}` | `{ format: 'JS', splitFiles: true, outputName: 'translations'}` |                           Output type and split options.                            |
 
-\*\*\* `format` accepts `JS` or `JSON` as values
+\*\*\* `format` accepts `JS` `JS_EXPORT_DEFAULT`, `TS` or `JSON` as values
 
 **&rarr; Returns: `Promise<void>`**
