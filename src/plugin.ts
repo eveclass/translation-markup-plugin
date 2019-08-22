@@ -9,18 +9,18 @@ import { IPluginConstructorParams } from '../types/IPluginConstructorParams';
 class TranslationMarkupPlugin {
   private readonly globPath: string;
   private readonly outputDirectory: string;
-  private readonly compileOptions: ICompileOptions;
+  private readonly options: ICompileOptions;
 
-  constructor(options?: IPluginConstructorParams) {
+  constructor(pluginOptions?: IPluginConstructorParams) {
     const {
       globPath = './**/*.lang.yaml',
       outputDirectory = './translations',
-      compileOptions = { format: FormatOptions.JS }
-    } = { ...options };
+      options = { format: FormatOptions.JS }
+    } = { ...pluginOptions };
 
     this.globPath = globPath;
     this.outputDirectory = outputDirectory;
-    this.compileOptions = compileOptions;
+    this.options = options;
   }
 
   public apply(compiler: any) {
@@ -56,7 +56,7 @@ class TranslationMarkupPlugin {
     compile({
       globPath: this.globPath,
       outputDirectory: this.outputDirectory,
-      options: this.compileOptions
+      options: this.options
     }).catch((error: any) => {
       console.warn('Translation Compile error');
       console.log(error);

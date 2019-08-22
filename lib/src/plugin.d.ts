@@ -5,8 +5,8 @@ import { IPluginConstructorParams } from '../types/IPluginConstructorParams';
 declare class TranslationMarkupPlugin {
     private readonly globPath;
     private readonly outputDirectory;
-    private readonly compileOptions;
-    constructor(options?: IPluginConstructorParams);
+    private readonly options;
+    constructor(pluginOptions?: IPluginConstructorParams);
     apply(compiler: any): void;
     private compileTranslationFiles;
 }
