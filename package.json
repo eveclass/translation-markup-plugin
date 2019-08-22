@@ -2,6 +2,7 @@
   "name": "@shiftcode/translation-markup-plugin",
   "version": "1.0.3",
   "description": "",
+  "homepage": "https://translationmarkup.com/",
   "main": "lib/src/plugin.js",
   "types": "lib/src/plugin.d.ts",
   "scripts": {
