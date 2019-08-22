@@ -1,6 +1,6 @@
 {
   "name": "@shiftcode/translation-markup-plugin",
-  "version": "1.0.3",
+  "version": "1.0.7",
   "description": "",
   "homepage": "https://translationmarkup.com/",
   "main": "lib/src/plugin.js",
