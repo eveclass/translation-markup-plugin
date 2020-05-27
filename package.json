@@ -20,7 +20,7 @@
   "author": "Shift Code",
   "license": "MIT",
   "dependencies": {
-    "@shiftcode/translation-markup": "^1.0.3",
+    "@shiftcode/translation-markup": "^1.0.5",
     "tslint": "^5.18.0",
     "tslint-config-prettier": "^1.18.0",
     "tslint-microsoft-contrib": "^6.2.0",

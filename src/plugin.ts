@@ -10,17 +10,20 @@ class TranslationMarkupPlugin {
   private readonly globPath: string;
   private readonly outputDirectory: string;
   private readonly options: ICompileOptions;
+  private readonly test?: string;
 
   constructor(pluginOptions?: IPluginConstructorParams) {
     const {
       globPath = './**/*.lang.yaml',
       outputDirectory = './translations',
-      options = { format: FormatOptions.JS }
+      options = { format: FormatOptions.JS },
+      test,
     } = { ...pluginOptions };
 
     this.globPath = globPath;
     this.outputDirectory = outputDirectory;
     this.options = options;
+    this.test = test;
   }
 
   public apply(compiler: any) {
@@ -28,7 +31,7 @@ class TranslationMarkupPlugin {
      * Used in the build stage
      */
     compiler.hooks.afterPlugins.tap('TranslationMarkupPlugin', () => {
-      this.compileTranslationFiles();
+      return this.compileTranslationFiles();
     });
 
     /**
@@ -37,26 +40,23 @@ class TranslationMarkupPlugin {
     compiler.hooks.watchRun.tapPromise(
       'TranslationMarkupPlugin',
       async (runCompiler: any) => {
-        const changedFilesPaths = Object.keys(
-          runCompiler.watchFileSystem.watcher.mtimes
-        );
-
+        const changedFilesPaths = Object.keys(runCompiler.watchFileSystem.watcher.mtimes);
         const paths = changedFilesPaths.join();
-
-        const found = paths.match(this.outputDirectory);
-
-        if (!found) {
-          this.compileTranslationFiles();
+        const recompile = this.test
+          ? paths.match(this.test)
+          : !paths.match(this.outputDirectory);
+        if (recompile) {
+          return this.compileTranslationFiles();
         }
-      }
+      },
     );
   }
 
   private compileTranslationFiles() {
-    compile({
+    return compile({
       globPath: this.globPath,
       outputDirectory: this.outputDirectory,
-      options: this.options
+      options: this.options,
     }).catch((error: any) => {
       console.warn('Translation Compile error');
       console.log(error);
